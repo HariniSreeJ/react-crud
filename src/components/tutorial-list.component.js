@@ -158,7 +158,7 @@ export default class TutorialsList extends Component {
 
                             <Link
                                 to={"/tutorials/" + currentTutorial.id}
-                                className="badge badge-warning"
+                                className="badge bg-warning"
                             >
                                 Edit
                             </Link>

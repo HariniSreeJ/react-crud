@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import TutorialDataService from "../services/tutorial.service";
+import { withRouter } from '../common/with-router';
 
-export default class Tutorial extends Component {
+class Tutorial extends Component {
     constructor(props) {
         super(props);
         this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -23,7 +24,8 @@ export default class Tutorial extends Component {
     }
 
     componentDidMount() {
-        this.getTutorial(this.props.match.params.id);
+        //this.getTutorial(this.props.match.params.id);
+        this.getTutorial(this.props.router.params.id);
     }
 
     onChangeTitle(e) {
@@ -152,14 +154,14 @@ export default class Tutorial extends Component {
 
                         {currentTutorial.published ? (
                             <button
-                                className="badge badge-primary mr-2"
+                                className="badge bg-primary mr-2"
                                 onClick={() => this.updatePublished(false)}
                             >
                                 UnPublish
                             </button>
                         ) : (
                             <button
-                                className="badge badge-primary mr-2"
+                                className="badge bg-primary mr-2"
                                 onClick={() => this.updatePublished(true)}
                             >
                                 Publish
@@ -167,7 +169,7 @@ export default class Tutorial extends Component {
                         )}
 
                         <button
-                            className="badge badge-danger mr-2"
+                            className="badge bg-danger mr-2"
                             onClick={this.deleteTutorial}
                         >
                             Delete
@@ -175,7 +177,7 @@ export default class Tutorial extends Component {
 
                         <button
                             type="submit"
-                            className="badge badge-success"
+                            className="badge bg-success"
                             onClick={this.updateTutorial}
                         >
                             Update
@@ -191,4 +193,4 @@ export default class Tutorial extends Component {
             </div>
         );
     }
-}
+}export default withRouter(Tutorial);

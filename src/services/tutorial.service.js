@@ -14,11 +14,11 @@ create(data){
 }
 
 update(id,data){
-    return http.delete(`/tutorials/${id}`,data);
+    return http.put(`/tutorials/${id}`, data);
 }
 
 delete(id){
-    return http.delete(`/tutorils/${id}`);
+    return http.delete(`/tutorials/${id}`);
 }
 
 deleteAll(){
@@ -26,7 +26,7 @@ deleteAll(){
 }
 
 findByTitle(title){
-    return http.get(`/tutorials/title-${title}`);
+    return http.get(`/tutorials?title=${title}`);
 }
 }
 
